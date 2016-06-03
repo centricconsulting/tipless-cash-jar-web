@@ -162,7 +162,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\AppApiControllerBase.cs" />
     <Compile Include="Core\AppControllerBase.cs" />
+    <Compile Include="Core\EnforceHttpsHandler.cs" />
     <Compile Include="Core\ICanApplyTo.cs" />
+    <Compile Include="Core\RequireSecureConnectionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
