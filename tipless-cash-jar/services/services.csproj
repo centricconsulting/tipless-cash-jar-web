@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDonationService.cs" />
+    <Compile Include="models\ExecutedDonationServiceModel.cs" />
     <Compile Include="models\NewDonationServiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

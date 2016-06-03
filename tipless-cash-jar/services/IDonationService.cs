@@ -12,6 +12,14 @@ namespace tiplessCashJar.services
     Task<ExecutedDonationServiceModel> Execute(NewDonationServiceModel newDonation);
   }
 
+  public class DonationService : IDonationService
+  {
+    public Task<ExecutedDonationServiceModel> Execute(NewDonationServiceModel newDonation)
+    {
+      throw new NotImplementedException();
+    }
+  }
+
   public class FakeDonationService : IDonationService
   {
     public async Task<ExecutedDonationServiceModel> Execute(NewDonationServiceModel newDonation)

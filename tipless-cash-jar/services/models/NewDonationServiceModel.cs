@@ -12,9 +12,4 @@ namespace tiplessCashJar.services.models
     public string BeaconNumber { get; set; }
     public int Amount { get; set; }
   }
-
-  public class ExecutedDonationServiceModel
-  {
-    public Guid Id { get; set; }
-  }
 }
