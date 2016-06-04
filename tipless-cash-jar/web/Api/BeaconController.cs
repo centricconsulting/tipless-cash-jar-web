@@ -22,9 +22,9 @@ namespace tiplessCashJar.web.Api
         [HttpGet]
         [Route("api/Beacons")]
         [ResponseType(typeof(List<BeaconApiModel>))]
-        public IHttpActionResult GetAllBeacons()
+        public async Task<IHttpActionResult> GetAllBeacons()
         {
-            var beaconList = BeaconService.GetAllBeacons();
+            var beaconList = await BeaconService.GetAllBeacons();
             if (beaconList == null)
             {
                 return NotFound();

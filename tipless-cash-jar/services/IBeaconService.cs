@@ -11,12 +11,12 @@ namespace tiplessCashJar.services
 {
     public interface IBeaconService
     {
-        List<BeaconServiceModel> GetAllBeacons();
+        Task<List<BeaconServiceModel>> GetAllBeacons();
     }
 
     public class FakeBeaconService : IBeaconService
     {
-        public List<BeaconServiceModel> GetAllBeacons()
+        public async Task<List<BeaconServiceModel>> GetAllBeacons()
         {
             return new List<BeaconServiceModel> {
                 new BeaconServiceModel { Id = Guid.NewGuid() },
