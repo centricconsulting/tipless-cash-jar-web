@@ -32,23 +32,10 @@ namespace tiplessCashJar.services
       return new ExecutedDonationServiceModel(result);
     }
 
-    public async Task<ExecutedDonationServiceModel> GetById(Guid Id)
-    {
-            var result = await DonationRepository.GetById(Id);
-            return new ExecutedDonationServiceModel(result);
-    }
-  }
-
-  public class FakeDonationService : IDonationService
-  {
-    public async Task<ExecutedDonationServiceModel> Create(NewDonationServiceModel newDonation)
-    {
-      return new ExecutedDonationServiceModel { Id = Guid.NewGuid() };
-    }
-
     public async Task<ExecutedDonationServiceModel> GetById(Guid id)
     {
-      return new ExecutedDonationServiceModel { Id = id };
+      var result = await DonationRepository.GetById(id);
+      return new ExecutedDonationServiceModel(result);
     }
   }
 }

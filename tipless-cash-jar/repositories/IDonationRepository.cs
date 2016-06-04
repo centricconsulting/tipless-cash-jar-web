@@ -4,39 +4,39 @@ using tiplessCashJar.entities;
 
 namespace tiplessCashJar.repositories
 {
-    public interface IDonationRepository
+  public interface IDonationRepository
+  {
+    Task<DonationEntity> Create(DonationEntity entity);
+    Task<DonationEntity> GetById(Guid id);
+  }
+
+  public class DonationRepository : RepositoryBase, IDonationRepository
+  {
+    public async Task<DonationEntity> Create(DonationEntity entity)
     {
-        Task<DonationEntity> Create(DonationEntity entity);
-        Task<DonationEntity> GetById(Guid id);
+      Db.Donations.Add(entity);
+      await Db.SaveChangesAsync();
+      return entity;
     }
 
-    public class DonationRepository : RepositoryBase, IDonationRepository
+    public async Task<DonationEntity> GetById(Guid id)
     {
-        public async Task<DonationEntity> Create(DonationEntity entity)
-        {
-            Db.Donations.Add(entity);
-            await Db.SaveChangesAsync();
-            return entity;
-        }
-
-        public async Task<DonationEntity> GetById(Guid Id)
-        {
-            var result = Db.Donations.Find(Id);
-            return result;
-        }
-
-        public DonationRepository(TiplessCashJarContext db) : base(db)
-        {
-        }
+      var result = await Db.Donations.FindAsync(id);
+      return result;
     }
 
-    public abstract class RepositoryBase
+    public DonationRepository(TiplessCashJarContext db) : base(db)
     {
-        protected TiplessCashJarContext Db { get; set; }
-
-        protected RepositoryBase(TiplessCashJarContext db)
-        {
-            Db = db;
-        }
     }
+  }
+
+  public abstract class RepositoryBase
+  {
+    protected TiplessCashJarContext Db { get; set; }
+
+    protected RepositoryBase(TiplessCashJarContext db)
+    {
+      Db = db;
+    }
+  }
 }
