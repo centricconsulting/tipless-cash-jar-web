@@ -8,9 +8,15 @@ namespace tiplessCashJar.web.ApiModels
     {
         public BeaconApiModel(BeaconServiceModel beacon)
         {
-            Id = beacon.Id;
+            Name = beacon.Name;
+            Uuid = beacon.Uuid;
+            Major = beacon.Major;
+            Minor = beacon.Minor;
         }
 
-        public Guid Id { get; private set; }
+        public int Major { get; private set; }
+        public int Minor { get; private set; }
+        public string Name { get; private set; }
+        public string Uuid { get; private set; }
     }
 }
