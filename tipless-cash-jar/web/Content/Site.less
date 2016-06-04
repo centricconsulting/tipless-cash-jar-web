@@ -1,15 +1,22 @@
 ﻿@import "bootstrap/bootstrap.less";
 
 body {
+    width: 100%;
+    height: 100%;
     padding-top: 50px;
     padding-bottom: 150px;
+}
+
+html {
+    width: 100%;
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -32,4 +39,25 @@ textarea {
 
 .top-menu {
     margin-top: 60px;
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+
+.scrolling-section {
+    height: 100%;
+    padding-top: 100px;
+    text-align: center;
+    background: #fff;
 }
