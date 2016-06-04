@@ -9,6 +9,8 @@ namespace tiplessCashJar.repositories
 {
   public class TiplessCashJarContext : DbContext
   {
-
+    public TiplessCashJarContext() : base("tipless-cash-jar-connection-string")
+    {
+    }
   }
 }
