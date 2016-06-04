@@ -79,5 +79,6 @@
     <Build Include="dbo\Tables\giver_card_hist.sql" />
     <Build Include="dbo\Tables\giver_card.sql" />
     <Build Include="dbo\Tables\purchase_transaction.sql" />
+    <Build Include="dbo\Tables\contact.sql" />
   </ItemGroup>
 </Project>
