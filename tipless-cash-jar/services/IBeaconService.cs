@@ -9,7 +9,7 @@ using tiplessCashJar.services.models;
 
 namespace tiplessCashJar.services
 {
-    public interface IBeaconService
+  public interface IBeaconService
     {
         Task<List<BeaconServiceModel>> GetAllBeacons();
     }
