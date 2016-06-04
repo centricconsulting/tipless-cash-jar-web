@@ -1,6 +1,6 @@
 using System.Web.Mvc;
 
-namespace web.Core
+namespace tiplessCashJar.web.Core
 {
   public class AppControllerBase : Controller
   {

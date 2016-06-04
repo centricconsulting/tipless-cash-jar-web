@@ -25,6 +25,7 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -78,7 +79,5 @@
     <Build Include="dbo\Tables\giver_card_hist.sql" />
     <Build Include="dbo\Tables\giver_card.sql" />
     <Build Include="dbo\Tables\purchase_transaction.sql" />
-    <Build Include="dbo\Tables\DonationEntities.sql" />
-    <Build Include="dbo\Tables\__MigrationHistory.sql" />
   </ItemGroup>
 </Project>
