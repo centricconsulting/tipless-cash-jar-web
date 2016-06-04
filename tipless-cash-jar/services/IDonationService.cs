@@ -32,9 +32,10 @@ namespace tiplessCashJar.services
       return new ExecutedDonationServiceModel(result);
     }
 
-    public Task<ExecutedDonationServiceModel> GetById(Guid id)
+    public async Task<ExecutedDonationServiceModel> GetById(Guid Id)
     {
-      throw new NotImplementedException();
+            var result = await DonationRepository.GetById(Id);
+            return new ExecutedDonationServiceModel(result);
     }
   }
 

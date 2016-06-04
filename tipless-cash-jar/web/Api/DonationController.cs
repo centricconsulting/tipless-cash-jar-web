@@ -39,7 +39,7 @@ namespace tiplessCashJar.web.Api
     }
 
     [HttpGet]
-    [Route("api/donate")]
+    [Route("api/donate/{id:Guid}")]
     [ResponseType(typeof(CompletedDonationApiModel))]
     public async Task<IHttpActionResult> Get(Guid id)
     {

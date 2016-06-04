@@ -1,34 +1,42 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using tiplessCashJar.entities;
 
 namespace tiplessCashJar.repositories
 {
-  public interface IDonationRepository
-  {
-    Task<DonationEntity> Create(DonationEntity entity);
-  }
-
-  public class DonationRepository : RepositoryBase, IDonationRepository
-  {
-    public async Task<DonationEntity> Create(DonationEntity entity)
+    public interface IDonationRepository
     {
-      Db.Donations.Add(entity);
-      await Db.SaveChangesAsync();
-      return entity;
+        Task<DonationEntity> Create(DonationEntity entity);
+        Task<DonationEntity> GetById(Guid id);
     }
 
-    public DonationRepository(TiplessCashJarContext db) : base(db)
+    public class DonationRepository : RepositoryBase, IDonationRepository
     {
+        public async Task<DonationEntity> Create(DonationEntity entity)
+        {
+            Db.Donations.Add(entity);
+            await Db.SaveChangesAsync();
+            return entity;
+        }
+
+        public async Task<DonationEntity> GetById(Guid Id)
+        {
+            var result = Db.Donations.Find(Id);
+            return result;
+        }
+
+        public DonationRepository(TiplessCashJarContext db) : base(db)
+        {
+        }
     }
-  }
 
-  public abstract class RepositoryBase
-  {
-    protected TiplessCashJarContext Db { get; set; }
-
-    protected RepositoryBase(TiplessCashJarContext db)
+    public abstract class RepositoryBase
     {
-      Db = db;
+        protected TiplessCashJarContext Db { get; set; }
+
+        protected RepositoryBase(TiplessCashJarContext db)
+        {
+            Db = db;
+        }
     }
-  }
 }
