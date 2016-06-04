@@ -19,7 +19,7 @@ namespace tiplessCashJar.services
         public List<BeaconServiceModel> GetAllBeacons()
         {
             return new List<BeaconServiceModel> {
-                new BeaconServiceModel { Id = Guid.NewGuid() }
+                new BeaconServiceModel { Id = Guid.NewGuid() },
                 new BeaconServiceModel { Id = Guid.NewGuid() }
             };
         }

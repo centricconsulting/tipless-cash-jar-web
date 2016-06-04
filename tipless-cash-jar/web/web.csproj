@@ -159,8 +159,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiModels\BeaconApiModel.cs" />
     <Compile Include="ApiModels\CompletedDonationApiModel.cs" />
     <Compile Include="ApiModels\SendDonationApiModel.cs" />
+    <Compile Include="Api\BeaconController.cs" />
     <Compile Include="Api\DonationController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
