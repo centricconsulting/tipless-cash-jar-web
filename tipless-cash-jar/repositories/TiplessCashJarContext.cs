@@ -11,6 +11,9 @@ namespace tiplessCashJar.repositories
   public class TiplessCashJarContext : DbContext
   {
     public DbSet<DonationEntity> Donations { get; set; }
+    public DbSet<RefusalEntity> Refusals { get; set; }
+    public DbSet<BeaconEntity> Beacons { get; set; }
+
     public TiplessCashJarContext() : base("tipless-cash-jar-connection-string")
     {
     }

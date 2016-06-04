@@ -9,10 +9,38 @@ using System.Web.Http.Description;
 using tiplessCashJar.services;
 using tiplessCashJar.services.models;
 using tiplessCashJar.web.ApiModels;
+using tiplessCashJar.web.Core;
+using WebGrease;
 
 namespace tiplessCashJar.web.Api
 {
-  public class DonationController : ApiController
+  public class RefusalController : AppApiControllerBase
+  {
+    private IDonationService DonationService { get; set; }
+
+    public RefusalController(IDonationService donationService) { DonationService = donationService; }
+
+    [HttpPost]
+    [Route("api/refuse/{name}")]
+    public async Task<IHttpActionResult> RefuseDonation(string name)
+    {
+      var response = await DonationService.Refuse(name);
+
+      if (response == null) return NotFound();
+
+      return CreatedAtRoute("DefaultApi", new { controller = "Refusal", id = response.Id }, new RefusedDonationApiModel(response));
+    }
+
+    [HttpGet]
+    [Route("api/refusal/{id:Guid}")]
+    [ResponseType(typeof(RefusedDonationApiModel))]
+    public async Task<IHttpActionResult> GetRefusal(Guid id)
+    {
+      return null;
+    }
+  }
+
+  public class DonationController : AppApiControllerBase
   {
     private IDonationService DonationService { get; set; }
 
@@ -52,6 +80,5 @@ namespace tiplessCashJar.web.Api
       return Ok(new CompletedDonationApiModel(model));
 
     }
-
   }
 }

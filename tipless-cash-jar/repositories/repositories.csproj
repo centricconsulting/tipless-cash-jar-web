@@ -69,13 +69,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRefusalRepository.cs" />
+    <Compile Include="Migrations\201606041853531_addedTempRefusal.cs" />
+    <Compile Include="Migrations\201606041853531_addedTempRefusal.Designer.cs">
+      <DependentUpon>201606041853531_addedTempRefusal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606041927011_addBeacon.cs" />
+    <Compile Include="Migrations\201606041927011_addBeacon.Designer.cs">
+      <DependentUpon>201606041927011_addBeacon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecipientRepository.cs" />
     <Compile Include="IDonationRepository.cs" />
+    <Compile Include="IRecipientRepository.cs" />
     <Compile Include="Migrations\201606040131080_createDonationEntity.cs" />
     <Compile Include="Migrations\201606040131080_createDonationEntity.Designer.cs">
       <DependentUpon>201606040131080_createDonationEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryBase.cs" />
     <Compile Include="TiplessCashJarContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +103,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606040131080_createDonationEntity.resx">
       <DependentUpon>201606040131080_createDonationEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606041853531_addedTempRefusal.resx">
+      <DependentUpon>201606041853531_addedTempRefusal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606041927011_addBeacon.resx">
+      <DependentUpon>201606041927011_addBeacon.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
