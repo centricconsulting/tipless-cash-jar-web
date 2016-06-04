@@ -17,8 +17,13 @@ namespace tiplessCashJar.web.Api
   public class DonationController : AppApiControllerBase
   {
     private IDonationService DonationService { get; set; }
+    private IAccountService AccountService { get; set; }
 
-    public DonationController(IDonationService donationService) { DonationService = donationService; }
+    public DonationController(IDonationService donationService, IAccountService accountService)
+    {
+      DonationService = donationService;
+      AccountService = accountService;
+    }
 
     [HttpPost]
     [Route("api/donate")]
@@ -38,6 +43,21 @@ namespace tiplessCashJar.web.Api
       {
         return InternalServerError(e);
       }
+    }
+
+    [HttpGet]
+    [Route("api/donations")]
+    [ResponseType(typeof(List<TransactionHistoryApiModel>))]
+    public async Task<IHttpActionResult> GetAll()
+    {
+      var model = await AccountService.GetAllMyTransactions();
+      var result = new List<TransactionHistoryApiModel>();
+      foreach (var tx in model)
+      {
+        result.Add(new TransactionHistoryApiModel(tx));
+      }
+
+      return Ok(result);
     }
 
     [HttpGet]
