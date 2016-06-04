@@ -45,6 +45,16 @@
     <Compile Include="models\NewDonationServiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\entities\entities.csproj">
+      <Project>{3FEBDC6A-D545-4472-8F42-47BD1F25D4CB}</Project>
+      <Name>entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\repositories\repositories.csproj">
+      <Project>{71D5A377-3E18-4FF2-BAE9-9FD7BA7D0F2B}</Project>
+      <Name>repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

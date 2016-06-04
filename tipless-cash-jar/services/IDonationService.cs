@@ -3,39 +3,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tiplessCashJar.entities;
+using tiplessCashJar.repositories;
 using tiplessCashJar.services.models;
 
 namespace tiplessCashJar.services
 {
-    public interface IDonationService
+  public interface IDonationService
+  {
+    Task<ExecutedDonationServiceModel> Create(NewDonationServiceModel newDonation);
+    Task<ExecutedDonationServiceModel> GetById(Guid id);
+  }
+
+  public class DonationService : IDonationService
+  {
+    private IDonationRepository DonationRepository { get; set; }
+
+    public DonationService(IDonationRepository donationRepository)
     {
-        Task<ExecutedDonationServiceModel> Execute(NewDonationServiceModel newDonation);
-        Task<ExecutedDonationServiceModel> GetById(Guid id);
+      DonationRepository = donationRepository;
     }
 
-    public class DonationService : IDonationService
+    public async Task<ExecutedDonationServiceModel> Create(NewDonationServiceModel newDonation)
     {
-        public Task<ExecutedDonationServiceModel> Execute(NewDonationServiceModel newDonation)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ExecutedDonationServiceModel> GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+      var newEntity = new DonationEntity();
+      newEntity = newDonation.ApplyTo(newEntity);
+      var result = await DonationRepository.Create(newEntity);
+      return new ExecutedDonationServiceModel(result);
     }
 
-    public class FakeDonationService : IDonationService
+    public Task<ExecutedDonationServiceModel> GetById(Guid id)
     {
-        public async Task<ExecutedDonationServiceModel> Execute(NewDonationServiceModel newDonation)
-        {
-            return new ExecutedDonationServiceModel { Id = Guid.NewGuid() };
-        }
-
-        public async Task<ExecutedDonationServiceModel> GetById(Guid id)
-        {
-            return new ExecutedDonationServiceModel { Id = id };
-        }
+      throw new NotImplementedException();
     }
+  }
+
+  public class FakeDonationService : IDonationService
+  {
+    public async Task<ExecutedDonationServiceModel> Create(NewDonationServiceModel newDonation)
+    {
+      return new ExecutedDonationServiceModel { Id = Guid.NewGuid() };
+    }
+
+    public async Task<ExecutedDonationServiceModel> GetById(Guid id)
+    {
+      return new ExecutedDonationServiceModel { Id = id };
+    }
+  }
 }

@@ -4,11 +4,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tiplessCashJar.entities;
 
 namespace tiplessCashJar.repositories
 {
   public class TiplessCashJarContext : DbContext
   {
+    public DbSet<DonationEntity> Donations { get; set; }
     public TiplessCashJarContext() : base("tipless-cash-jar-connection-string")
     {
     }

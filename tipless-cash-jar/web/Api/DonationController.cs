@@ -12,45 +12,46 @@ using tiplessCashJar.web.ApiModels;
 
 namespace tiplessCashJar.web.Api
 {
-    public class DonationController : ApiController
+  public class DonationController : ApiController
+  {
+    private IDonationService DonationService { get; set; }
+
+    public DonationController(IDonationService donationService) { DonationService = donationService; }
+
+    [HttpPost]
+    [Route("api/donate")]
+    public async Task<IHttpActionResult> Donate([FromBody] SendDonationApiModel donation)
     {
-        private IDonationService DonationService { get; set; }
+      if (!ModelState.IsValid) return BadRequest("Donation model is invalid.");
 
-        public DonationController(IDonationService donationService) { DonationService = donationService; }
+      var newDonation = new NewDonationServiceModel { GiverId = Guid.NewGuid() };
+      newDonation = donation.ApplyTo(newDonation);
 
-        [HttpPost]
-        [Route("api/donate")]
-        public async Task<IHttpActionResult> Donate([FromBody] SendDonationApiModel donation)
-        {
-            if (!ModelState.IsValid) return BadRequest("Donation model is invalid.");
+      try
+      {
+        var finalizedDonation = await DonationService.Create(newDonation);
+        return CreatedAtRoute("DefaultApi", new { controller = "Donation", id = finalizedDonation.Id }, new CompletedDonationApiModel(finalizedDonation));
+      }
+      catch (Exception e)
+      {
+        return InternalServerError(e);
+      }
+    }
 
-            var newDonation = new NewDonationServiceModel { GiverId = Guid.NewGuid() };
-            newDonation = donation.ApplyTo(newDonation);
+    [HttpGet]
+    [Route("api/donate")]
+    [ResponseType(typeof(CompletedDonationApiModel))]
+    public async Task<IHttpActionResult> Get(Guid id)
+    {
 
-            try
-            {
-                var finalizedDonation = await DonationService.Execute(newDonation);
-                return CreatedAtRoute("DefaultApi", new { controller = "Donation", id = finalizedDonation.Id }, new CompletedDonationApiModel(finalizedDonation));
-            }
-            catch (Exception e)
-            {
-                return InternalServerError(e);
-            }
-        }
-        [HttpGet]
-        [Route("api/donate")]
-        [ResponseType(typeof(CompletedDonationApiModel))]
-        public async Task<IHttpActionResult> Get(Guid id)
-        {
-
-            var model = await DonationService.GetById(id);
-            if (model == null)
-            {
-                return NotFound();
-            }
-            return Ok(new CompletedDonationApiModel(model));
-
-        }
+      var model = await DonationService.GetById(id);
+      if (model == null)
+      {
+        return NotFound();
+      }
+      return Ok(new CompletedDonationApiModel(model));
 
     }
+
+  }
 }

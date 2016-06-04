@@ -69,6 +69,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDonationRepository.cs" />
+    <Compile Include="Migrations\201606040131080_createDonationEntity.cs" />
+    <Compile Include="Migrations\201606040131080_createDonationEntity.Designer.cs">
+      <DependentUpon>201606040131080_createDonationEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiplessCashJarContext.cs" />
@@ -76,6 +81,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\entities\entities.csproj">
+      <Project>{3FEBDC6A-D545-4472-8F42-47BD1F25D4CB}</Project>
+      <Name>entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606040131080_createDonationEntity.resx">
+      <DependentUpon>201606040131080_createDonationEntity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

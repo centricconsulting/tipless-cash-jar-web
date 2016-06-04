@@ -1,4 +1,4 @@
-﻿namespace web.Core
+﻿namespace tiplessCashJar.entities
 {
   public interface ICanApplyTo<T>
   {

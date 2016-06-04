@@ -1,3 +1,4 @@
+using tiplessCashJar.repositories;
 using tiplessCashJar.services;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(tiplessCashJar.web.App_Start.NinjectWebCommon), "Start")]
@@ -63,7 +64,14 @@ namespace tiplessCashJar.web.App_Start
     /// <param name="kernel">The kernel.</param>
     private static void RegisterServices(IKernel kernel)
     {
-      kernel.Bind<IDonationService>().To<FakeDonationService>();
+      //services
+      kernel.Bind<IDonationService>().To<DonationService>();
+
+      //repos
+      kernel.Bind<IDonationRepository>().To<DonationRepository>();
+
+      //db
+      kernel.Bind<TiplessCashJarContext>().To<TiplessCashJarContext>();
     }
   }
 }
