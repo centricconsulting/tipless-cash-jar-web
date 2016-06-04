@@ -1,7 +1,4 @@
-﻿using System;
-using tiplessCashJar.entities;
-
-namespace tiplessCashJar.services.models
+﻿namespace tiplessCashJar.services.models
 {
     public class BeaconServiceModel
     {
@@ -10,5 +7,4 @@ namespace tiplessCashJar.services.models
         public string Name { get; internal set; }
         public string Uuid { get; internal set; }
     }
-
 }

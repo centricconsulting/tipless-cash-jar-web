@@ -72,6 +72,7 @@ namespace tiplessCashJar.web.App_Start
       kernel.Bind<IDonationRepository>().To<DonationRepository>();
       kernel.Bind<IRecipientRepository>().To<RecipientRepository>();
       kernel.Bind<IRefusalRepository>().To<RefusalRepository>();
+      kernel.Bind<IAccountService>().To<AccountService>();
 
       //db
       kernel.Bind<TiplessCashJarContext>().To<TiplessCashJarContext>();
