@@ -1,3 +1,5 @@
+using tiplessCashJar.entities;
+
 namespace tiplessCashJar.repositories.Migrations
 {
     using System;
@@ -26,6 +28,11 @@ namespace tiplessCashJar.repositories.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Beacons.AddOrUpdate(
+              p => p.Name,
+              new BeaconEntity { Id = Guid.NewGuid(), Name = "abc123", UUID = "???", Major = "0", Minor = "4", WhenCreated = DateTime.UtcNow }
+            );
         }
     }
 }

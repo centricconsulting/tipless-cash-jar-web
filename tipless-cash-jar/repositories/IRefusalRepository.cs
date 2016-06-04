@@ -1,0 +1,24 @@
+﻿using System.Threading.Tasks;
+using tiplessCashJar.entities;
+
+namespace tiplessCashJar.repositories
+{
+  public interface IRefusalRepository
+  {
+    Task<RefusalEntity> Create(RefusalEntity entity);
+  }
+
+  public class RefusalRepository : RepositoryBase, IRefusalRepository
+  {
+    public RefusalRepository(TiplessCashJarContext db) : base(db)
+    {
+    }
+
+    public async Task<RefusalEntity> Create(RefusalEntity entity)
+    {
+      Db.Refusals.Add(entity);
+      await Db.SaveChangesAsync();
+      return entity;
+    }
+  }
+}
