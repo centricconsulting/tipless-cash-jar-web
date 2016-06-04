@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using tiplessCashJar.web.Core;
 
-namespace web
+namespace tiplessCashJar.web
 {
     public static class WebApiConfig
     {
@@ -13,6 +14,7 @@ namespace web
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.MessageHandlers.Add(new EnforceHttpsHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
