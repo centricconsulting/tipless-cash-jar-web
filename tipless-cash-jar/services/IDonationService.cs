@@ -13,15 +13,21 @@ namespace tiplessCashJar.services
   {
     Task<ExecutedDonationServiceModel> Create(NewDonationServiceModel newDonation);
     Task<ExecutedDonationServiceModel> GetById(Guid id);
+    Task<DonationRefusalAckServiceModel> Refuse(string name);
   }
 
   public class DonationService : IDonationService
   {
     private IDonationRepository DonationRepository { get; set; }
+    private IRecipientRepository RecipientRepository { get; set; }
+    private IRefusalRepository RefusalRepository { get; set; }
 
-    public DonationService(IDonationRepository donationRepository)
+
+    public DonationService(IDonationRepository donationRepository, IRecipientRepository recipRepo, IRefusalRepository refusalRepo)
     {
       DonationRepository = donationRepository;
+      RecipientRepository = recipRepo;
+      RefusalRepository = refusalRepo;
     }
 
     public async Task<ExecutedDonationServiceModel> Create(NewDonationServiceModel newDonation)
@@ -36,6 +42,23 @@ namespace tiplessCashJar.services
     {
       var result = await DonationRepository.GetById(id);
       return new ExecutedDonationServiceModel(result);
+    }
+
+    public async Task<DonationRefusalAckServiceModel> Refuse(string name)
+    {
+      var recipient = await RecipientRepository.GetByBeaconName(name);
+      if (recipient == null) return null;
+
+      var refusal = new RefusalEntity
+      {
+        GiverId = Guid.NewGuid(),
+        RecipientId = recipient.Id,
+        BeaconName = recipient.BeaconName
+      };
+
+      var result = await RefusalRepository.Create(refusal);
+
+      return new DonationRefusalAckServiceModel(result);
     }
   }
 }
