@@ -43,9 +43,9 @@ namespace tiplessCashJar.web.Controllers
     public async Task<ActionResult> ActivityHistory()
     {
       var transactions = await AccountService.GetAllMyTransactions();
-      var model = new TransactionHistoryViewModelList(transactions);
+      var model = new TransactionHistoryViewModelList(transactions.OrderByDescending(tx => tx.When).ToList());
 
-      return View(model);
+      return View("ActivityHistory", model);
     }
   }
 }

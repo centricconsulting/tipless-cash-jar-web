@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Ninject.Syntax;
 using tiplessCashJar.services.models;
 
 namespace tiplessCashJar.web.Models
@@ -21,8 +22,18 @@ namespace tiplessCashJar.web.Models
   {
     public TransactionHistoryViewModel(TransactionServiceModel tx)
     {
-      //Id = tx.Id;
-      //Date = tx.
+      Id = tx.Id;
+      TxDate = tx.When.ToLocalTime().ToShortDateString();
+      TxTime = tx.When.ToLocalTime().ToShortTimeString();
+      Amount = tx.Amount.ToString("C");
     }
+
+    public string Amount { get; set; }
+
+    public string TxTime { get; set; }
+
+    public string TxDate { get; set; }
+
+    public Guid Id { get; set; }
   }
 }
