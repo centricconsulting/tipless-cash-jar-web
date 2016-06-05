@@ -1,0 +1,18 @@
+﻿@model dynamic
+
+
+<section class="scrolling-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Recipient Public Profile</h1>
+      </div>
+
+      @if (Request.UrlReferrer != null)
+      {
+        <a class="bottomNav" onclick="history.go(-1); return false;" href="#">Back</a><br />
+      }
+
+    </div>
+  </div>
+</section>

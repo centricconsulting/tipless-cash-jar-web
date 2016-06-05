@@ -181,6 +181,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RecipientController.cs" />
     <Compile Include="Core\AppApiControllerBase.cs" />
     <Compile Include="Core\AppControllerBase.cs" />
     <Compile Include="Core\EnforceHttpsHandler.cs" />
@@ -326,6 +327,7 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Views\Account\Settings.cshtml" />
     <Content Include="Views\Account\ActivityHistory.cshtml" />
+    <Content Include="Views\Recipient\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
