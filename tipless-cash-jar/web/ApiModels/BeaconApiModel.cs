@@ -1,5 +1,4 @@
-﻿using System;
-using tiplessCashJar.services;
+﻿using tiplessCashJar.services;
 using tiplessCashJar.services.models;
 
 namespace tiplessCashJar.web.ApiModels

@@ -169,6 +169,7 @@
     <Compile Include="ApiModels\SendDonationApiModel.cs" />
     <Compile Include="Api\AbandonController.cs" />
     <Compile Include="ApiModels\AbandonedDonationApiModel.cs" />
+    <Compile Include="ApiModels\TransactionHistoryApiModel.cs" />
     <Compile Include="Api\BeaconController.cs" />
     <Compile Include="Api\DonationController.cs" />
     <Compile Include="Api\RefusalController.cs" />
