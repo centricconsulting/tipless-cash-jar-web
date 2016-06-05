@@ -29,10 +29,12 @@ namespace tiplessCashJar.repositories.Migrations
             //    );
             //
 
-            context.Beacons.AddOrUpdate(
-              p => p.Name,
-              new BeaconEntity { Id = Guid.NewGuid(), Name = "abc123", UUID = "???", Major = "0", Minor = "4", WhenCreated = DateTime.UtcNow }
-            );
+          var old = context.Beacons.FirstOrDefault(m => m.Name == "abc123");
+          if (old != null)
+          {
+            context.Beacons.Remove(old);
+            context.SaveChanges();
+          }
         }
     }
 }
