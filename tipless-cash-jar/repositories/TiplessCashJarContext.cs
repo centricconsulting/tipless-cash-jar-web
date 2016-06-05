@@ -13,6 +13,7 @@ namespace tiplessCashJar.repositories
     public DbSet<DonationEntity> Donations { get; set; }
     public DbSet<RefusalEntity> Refusals { get; set; }
     public DbSet<BeaconEntity> Beacons { get; set; }
+    public DbSet<AbandonEntity> Abandons { get; set; }
 
     public TiplessCashJarContext() : base("tipless-cash-jar-connection-string")
     {

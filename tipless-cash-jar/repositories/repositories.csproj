@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAbandonRepository.cs" />
     <Compile Include="IRefusalRepository.cs" />
     <Compile Include="Migrations\201606041853531_addedTempRefusal.cs" />
     <Compile Include="Migrations\201606041853531_addedTempRefusal.Designer.cs">
@@ -77,6 +78,10 @@
     <Compile Include="Migrations\201606041927011_addBeacon.cs" />
     <Compile Include="Migrations\201606041927011_addBeacon.Designer.cs">
       <DependentUpon>201606041927011_addBeacon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606050135037_addingAbandon.cs" />
+    <Compile Include="Migrations\201606050135037_addingAbandon.Designer.cs">
+      <DependentUpon>201606050135037_addingAbandon.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipientRepository.cs" />
     <Compile Include="IDonationRepository.cs" />
@@ -109,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606041927011_addBeacon.resx">
       <DependentUpon>201606041927011_addBeacon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606050135037_addingAbandon.resx">
+      <DependentUpon>201606050135037_addingAbandon.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
