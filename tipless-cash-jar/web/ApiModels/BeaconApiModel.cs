@@ -14,8 +14,8 @@ namespace tiplessCashJar.web.ApiModels
             Minor = beacon.Minor;
         }
 
-        public int Major { get; private set; }
-        public int Minor { get; private set; }
+        public string Major { get; private set; }
+        public string Minor { get; private set; }
         public string Name { get; private set; }
         public string Uuid { get; private set; }
     }

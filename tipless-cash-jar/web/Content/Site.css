@@ -6779,3 +6779,7 @@ textarea {
   text-align: center;
   background: #fff;
 }
+.intro-section {
+  background-image: url(/Content/art/sunlight.jpg);
+  background-repeat: no-repeat;
+}

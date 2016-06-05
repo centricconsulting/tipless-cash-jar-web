@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAbandonRepository.cs" />
+    <Compile Include="IBeaconRepository.cs" />
     <Compile Include="IRefusalRepository.cs" />
     <Compile Include="Migrations\201606041853531_addedTempRefusal.cs" />
     <Compile Include="Migrations\201606041853531_addedTempRefusal.Designer.cs">

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using tiplessCashJar.entities;
 
@@ -8,6 +10,7 @@ namespace tiplessCashJar.repositories
   {
     Task<DonationEntity> Create(DonationEntity entity);
     Task<DonationEntity> GetById(Guid id);
+    Task<List<DonationEntity>> GetAll();
   }
 
   public class DonationRepository : RepositoryBase, IDonationRepository
@@ -23,6 +26,11 @@ namespace tiplessCashJar.repositories
     {
       var result = await Db.Donations.FindAsync(id);
       return result;
+    }
+
+    public async Task<List<DonationEntity>> GetAll()
+    {
+      return await Db.Donations.ToListAsync();
     }
 
     public DonationRepository(TiplessCashJarContext db) : base(db)

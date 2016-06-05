@@ -18,7 +18,7 @@ namespace tiplessCashJar.services
     Task<DonationAbandonAckServiceModel> Abandon(string name);
     Task<DonationAbandonAckServiceModel> GetAbandonedDonations(Guid id);
   }
-
+   
   public class DonationService : IDonationService
   {
     private IDonationRepository DonationRepository { get; set; }

@@ -58,15 +58,16 @@ namespace tiplessCashJar.web.App_Start
             }
         }
 
-        /// <summary>
-        /// Load your modules or register your services here!
-        /// </summary>
-        /// <param name="kernel">The kernel.</param>
-        private static void RegisterServices(IKernel kernel)
-        {
-            //services
-            kernel.Bind<IDonationService>().To<DonationService>();
-            kernel.Bind<IBeaconService>().To<FakeBeaconService>();
+    /// <summary>
+    /// Load your modules or register your services here!
+    /// </summary>
+    /// <param name="kernel">The kernel.</param>
+    private static void RegisterServices(IKernel kernel)
+    {
+      //services
+      kernel.Bind<IDonationService>().To<DonationService>();
+      kernel.Bind<IBeaconService>().To<BeaconService>();
+      kernel.Bind<IAccountService>().To<AccountService>();
 
             //repos
             kernel.Bind<IDonationRepository>().To<DonationRepository>();
