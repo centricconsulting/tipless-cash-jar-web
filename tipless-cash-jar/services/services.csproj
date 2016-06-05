@@ -44,6 +44,7 @@
     <Compile Include="IBeaconService.cs" />
     <Compile Include="IDonationService.cs" />
     <Compile Include="models\BeaconServiceModel.cs" />
+    <Compile Include="models\DonationAbandonAckServiceModel.cs" />
     <Compile Include="models\DonationRefusalAckServiceModel.cs" />
     <Compile Include="models\ExecutedDonationServiceModel.cs" />
     <Compile Include="models\NewDonationServiceModel.cs" />
