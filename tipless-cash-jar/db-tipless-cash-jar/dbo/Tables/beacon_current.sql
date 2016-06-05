@@ -1,11 +1,8 @@
 ﻿CREATE TABLE [dbo].[beacon_current] (
     [beacon_hist_key]    INT          IDENTITY (100, 1) NOT NULL,
     [beacon_key]         INT          NOT NULL,
-   	[beacon_uuid] [varchar](100) NOT NULL,
-	[major] [int] NOT NULL,
-	[minor] [int] NOT NULL,
-    [beacon_type_uid]    VARCHAR (50) NOT NULL,
-    [recipient_key]      INT          NOT NULL,
+   	[beacon_name] [varchar](100) NOT NULL,
+	[recipient_key]      INT          NOT NULL,
     [card_key]           INT          NOT NULL,
     [is_active]          BIT          NOT NULL,
     [is_locked]          BIT          NOT NULL,

@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{865740b4-bb66-4865-9419-626bce5607c9}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -80,5 +80,6 @@
     <Build Include="dbo\Tables\giver_card.sql" />
     <Build Include="dbo\Tables\purchase_transaction.sql" />
     <Build Include="dbo\Tables\contact.sql" />
+    <Build Include="beacon_idx_un1.sql" />
   </ItemGroup>
 </Project>
