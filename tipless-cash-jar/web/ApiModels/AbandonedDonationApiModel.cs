@@ -12,9 +12,9 @@ namespace tiplessCashJar.web.ApiModels
   {
     public AbandonedDonationApiModel(DonationAbandonAckServiceModel ack)
     {
-        WhenAbandoned = ack.WhenAbandoned;
+      WhenAbandoned = ack.WhenAbandoned;
     }
 
-     public DateTime WhenAbandoned { get; private set; }
-    }
+    public DateTime WhenAbandoned { get; private set; }
+  }
 }

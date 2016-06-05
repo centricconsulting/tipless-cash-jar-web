@@ -30,7 +30,10 @@ namespace tiplessCashJar.web.Api
     [ResponseType(typeof(RefusedDonationApiModel))]
     public async Task<IHttpActionResult> GetRefusal(Guid id)
     {
-      return null;
+        var response = await DonationService.GetRefusal(id);
+        if (response == null) return NotFound();
+
+        return Ok(new RefusedDonationApiModel(response));
     }
   }
 }
